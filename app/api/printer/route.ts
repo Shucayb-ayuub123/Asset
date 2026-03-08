@@ -2,12 +2,13 @@ import {DB} from "@/lib/db";
 import { NextResponse } from "next/server";
 export async function POST(request: Request) {
   try {
-    const { printer_name, Brand, model, Scanner, color, Location, status } =
+    const { printer_name, brand, model, scanner, color, location, status } =
       await request.json();
+      
 
     const cleint = await DB.execute(
       "INSERT INTO printer (printer_name, brand, model ,scanner ,color,status,location ) values(?,?,?,?,?,?,?)",
-      [printer_name, Brand, model, Scanner, color, status,Location ],
+      [printer_name, brand, model, scanner, color, status,location ],
     );
 
     if (!cleint) {

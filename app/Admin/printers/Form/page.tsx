@@ -27,7 +27,7 @@ const page = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const respons = await axios.post("/api/Asset-Register", PC_info);
+      const respons = await axios.post("/api/printer", PC_info);
       alert(respons.data.message);
     } catch (error: any) {
       alert(error?.respons?.data?.message);
