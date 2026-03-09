@@ -11,10 +11,9 @@ import { useRouter } from "next/navigation";
 import { Eye } from "lucide-react";
 import { EyeOffIcon } from "lucide-react";
 import { Metadata } from "next";
+import Head from "next/head";
 
-const metadata:Metadata = {
-  title: "Login",
-};
+
 const page = () => {
   const [MSG, setMsg] = useState<String>("");
 
@@ -51,6 +50,10 @@ const page = () => {
     return () => clearTimeout(timer);
   }, [MSG]);
   return (
+    <>
+    <Head>
+        <title>Login | My Website</title> {/* optional dynamic title */}
+      </Head>
     <div className="bg-gray-100 h-screen w-full flex flex-col justify-center  items-center relative overflow-hidden px-4">
       <div className="bg-white w-12/12 lg:w-130 px-10 py-16 rounded-lg md:w-7/12  sm:w-7/12  ">
         <div className="mb-10">
@@ -120,6 +123,7 @@ const page = () => {
         )}
       </div>
     </div>
+    </>
   );
 };
 
