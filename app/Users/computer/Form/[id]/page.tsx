@@ -12,7 +12,7 @@ import {
 
 import { computer } from "@/app/UserType";
 import axios from "axios";
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 const page = () => {
   const [PC_info, setInfo] = useState<computer>({
     com_name: "",
@@ -25,12 +25,11 @@ const page = () => {
   });
 
   const { id } = useParams();
+  const router = useRouter();
   const handleInfo = async () => {
     try {
       const response = await axios.get(`/api/Asset-Register/${id}`);
-
-     setInfo(response.data);
-  
+      router.push("/Users/computer");
     } catch (error: any) {
       alert(error?.response?.data?.message);
     }
@@ -43,8 +42,8 @@ const page = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
-      const respons = await axios.put(`/api/Asset-Register/${id}`, PC_info);
-      alert(respons.data.message);
+      await axios.put(`/api/Asset-Register/${id}`, PC_info);
+      router.push("/Users/computer");
     } catch (error: any) {
       alert(error?.respons?.data?.message);
     }

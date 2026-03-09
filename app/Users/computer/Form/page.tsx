@@ -36,9 +36,9 @@ const page = () => {
          
   }
   return (
-    <div className="bg-white h-80 rounded-2xl px-3 flex z-auto   justify-center items-center p-5">
-      <form className="flex-col space-y-3 gap-1 w-12/12" onSubmit={handleSubmit}>
-        <div className=" grid  grid-cols-3 space-x-4 ">
+    <div className="bg-white w-12/12 h-80 rounded-2xl px-3 flex z-auto max-w-6xl  justify-center items-center p-5">
+      <form className="flex flex-col  space-y-3 gap-1 w-12/12" onSubmit={handleSubmit}>
+        <div className=" grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 space-x-4">
           <div>
             <label htmlFor="">Computer Name</label>
             <Input className="border-[0.4px] border-gray-400" value={PC_info.com_name} onChange={(e)=> setInfo({...PC_info , com_name:e.target.value})} ></Input>
@@ -53,7 +53,7 @@ const page = () => {
           </div>
         </div>
 
-        <div className="grid  grid-cols-3 space-x-4">
+        <div className="grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 space-x-4">
           <div>
             <label htmlFor="">CPU</label>
             <Input value={PC_info.cpu} onChange={(e)=> setInfo({...PC_info , cpu:e.target.value})} className="border-[0.5px] border-gray-400"></Input>

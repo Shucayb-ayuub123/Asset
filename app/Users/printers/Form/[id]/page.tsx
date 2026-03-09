@@ -12,7 +12,7 @@ import {
 
 import { printer } from "@/app/UserType";
 import axios from "axios";
-import { useParams } from "next/navigation";
+import { useParams , useRouter } from "next/navigation";
 const page = () => {
   const [PC_info, setInfo] = useState<printer>({
     printer_name: "",
@@ -25,6 +25,7 @@ const page = () => {
   });
 
   const { id } = useParams();
+    const router = useRouter()
   const handleInfo = async () => {
     try {
       const response = await axios.get(`/api/printer/${id}`);
@@ -44,7 +45,7 @@ const page = () => {
     e.preventDefault();
     try {
       const respons = await axios.put(`/api/printer/${id}`, PC_info);
-      alert(respons.data.message);
+      router.push("/Users/printers")
     } catch (error: any) {
       alert(error?.respons?.data?.message);
     }

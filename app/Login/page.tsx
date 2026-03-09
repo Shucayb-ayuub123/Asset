@@ -10,6 +10,11 @@ import { Users } from "../UserType";
 import { useRouter } from "next/navigation";
 import { Eye } from "lucide-react";
 import { EyeOffIcon } from "lucide-react";
+import { Metadata } from "next";
+
+const metadata:Metadata = {
+  title: "Login",
+};
 const page = () => {
   const [MSG, setMsg] = useState<String>("");
 

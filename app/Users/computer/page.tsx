@@ -44,14 +44,17 @@ const page = () => {
     <>
       <div className="px-4 py-4">
         {Toggle && (
-          <div
-            className="bg-gray-300/70 backdrop-blur-[1px]  z-40 w-281 h-140  absolute  px-10 py-30 "
-            onClick={() => setToggle(false)}
-          >
-            <div onClick={(e) => e.stopPropagation()}>
-              <Form />
-            </div>
-          </div>
+         <div
+  className="fixed inset-0 bg-gray-300/70 backdrop-blur-sm z-40  flex justify-center items-center p-4"
+  onClick={() => setToggle(false)}
+>
+  <div
+    className="bg-white rounded-2xl w-full max-w-3xl p-6 md:p-10"
+    onClick={(e) => e.stopPropagation()}
+  >
+    <Form />
+  </div>
+</div>
         )}
         <div className="flex w-12/12 items-center justify-between border-b-[0.5px] pb-4 border-gray-400  z-0">
           <div className="flex flex-col space-y-2">

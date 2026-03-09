@@ -12,7 +12,7 @@ import {
 
 import { OtherDevices } from "@/app/UserType";
 import axios from "axios";
-import { useParams } from "next/navigation";
+import { useParams , useRouter } from "next/navigation";
 const page = () => {
   const [PC_info, setInfo] = useState<OtherDevices>({
     device_name: "",
@@ -38,12 +38,12 @@ const page = () => {
   useEffect(() => {
     handleInfo();
   }, []);
-
+  const router = useRouter()
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
       const respons = await axios.put(`/api/otherDevice/${id}`, PC_info);
-      alert(respons.data.message);
+      router.push("/Users/other-devices")
     } catch (error: any) {
       alert(error?.respons?.data?.message);
     }
